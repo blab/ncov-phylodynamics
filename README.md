@@ -28,9 +28,11 @@ Here, we followed [Andrew Rambaut's work on Virological.org](http://virological.
 We began by running the [Nextstrain nCov pipeline](https://github.com/nextstrain/ncov) to align sequences and mask spurious SNPs.
 We took the output file `masked.fasta` as the starting point for this analysis.
 We loaded this alignment into BEAST and specified an evolutionary model to estimate:
+
 * strict molecular clock (CTMC rate reference prior)
 * exponential growth rate (Laplace prior with scale 100)
 * effective population size at time of most recent sampled tip (uniform prior between 0 and 10)
+
 We followed Andrew in using a gamma distributed HKY nucleotide substitution model.
 MCMC was run for 50M steps, discarding the first 10M as burnin and sampling every 30,000 steps after this to give a dataset of 1335 MCMC samples.
 
@@ -53,7 +55,7 @@ This translates to a doubling time of 7.2 (95% CI 5.0-12.9) days.
 This coincides closely with doubling time reported by modeling groups looking at reported cases in China ([Wu et al][Wu et al]).
 
 Here, we plot timescale of coalescence {% eqinline N_e \tau %} through time:
-!(netau)[figures/netau.png]
+![netau](figures/netau.png)
 
 {% eqinline N_e \tau %} is what is directly measured by phylodynamic methods and is measured in years.
 Here, it can be seen that coalescence is slowing down, so that pairs of lineages on 1 Feb coalesce at a rate of 1 event 10+ years.
@@ -73,14 +75,14 @@ Thus, we convert BEAST estimates of {% eqinline N_e \tau %} to point prevalence 
 {% eq I = N_e \tau \times \frac{\sigma^2}{\tau} %}
 
 We arrive at the following estimate of prevalence through time:
-!(prevalence)[figures/prevalence.png]
+![prevalence](figures/prevalence.png)
 
 We estimate a median prevalence on 8 Feb of 28,500 currently infected with a 95% uncertainty interval of between 7500 and 104,300 currently infected.
 
 ### Total incidence
 
 We estimate incidence in each serial interval and then calculate a cumulative incidence total:
-!(incidence)[figures/incidence.png]
+![incidence](figures/incidence.png)
 
 We estimate a median total incidence on 8 Feb of 55,800 total infections since start of epidemic with a 95% uncertainty interval of between 17,500 and 194,400 total infections.
 On Feb 8, there were 34,886 total cases reported ([WHO Sit Rep 19][WHO Sit Rep 19]).
