@@ -45,16 +45,17 @@ The Mathematica notebook `ncov-phylodynamics.nb` contains code to analyze result
 ### Rate and TMRCA
 
 We find substitution rate consistent with previous work of 0.9 &times; 10<sup>-3</sup> (95% CI 0.5-1.4 &times; 10<sup>-3</sup>) substitutions per site per year.
-We find a median TMRCA of 3 Dec, 2019 (95% CI 30 Oct to 17 Dec).
+We find a median TMRCA of 3 Dec (95% CI 30 Oct to 17 Dec).
 
 ### Effective population size and exponential growth rate
 
-These phylodynamic approaches can estimate effective size of the virus population by examining rates of coalesce through time.
+These phylodynamic approaches can estimate effective size of the virus population by examining rates of coalescence through time.
 Here, we estimated the exponential growth rate as 35.4 (95% CI 9.6-50.0) per year.
 This translates to a doubling time of 7.2 (95% CI 5.0-12.9) days.
 This coincides closely with doubling time reported by modeling groups looking at reported cases in China ([Wu et al][Wu et al]).
 
 Here, we plot timescale of coalescence {% eqinline N_e \tau %} through time:
+
 ![netau](figures/netau.png)
 
 {% eqinline N_e \tau %} is what is directly measured by phylodynamic methods and is measured in years.
@@ -67,14 +68,14 @@ We assume generation time {% eqinline \tau %} to be 7.5 days following [Li et al
 Additionally, effective population size {% eqinline N_e %} can be translated into prevalence with knowledge of the variance in offspring distribution.
 High variance in distribution of secondary cases reduces prevalence relative to {% eqinline N_e %} as described by [Volz et al][Volz et al].
 This reduction is equal to
-{% eq \sigma^2 = \frac{1}{E[R_0]} + \frac{1}{k} + 1 %},
+{% eq \sigma^2 = \frac{1}{E[R_0]} + \frac{1}{k} + 1, %}
 where {% eqinline E[R_0] %} is the mean number of secondary cases and {% eqinline k %} is the dispersion parameter of secondary cases.
 We assume {% eqinline E[R_0] %} to be between 1.8 and 2.8 following [Wu et al][Wu et al] and others.
 We assume that variance of secondary cases is at most like SARS with superspreading dynamics with {% eqinline k=0.15 %}, but allow for less variance with {% eqinline k=0.30 %}.
-Thus, we convert BEAST estimates of {% eqinline N_e \tau %} to point prevalence {% eqinline I %} by following
-{% eq I = N_e \tau \times \frac{\sigma^2}{\tau} %}
+Thus, we convert BEAST estimates of {% eqinline N_e \tau %} to point prevalence {% eqinline I %} by following {% eqinline I = N_e \tau \times \sigma^2 / \tau %}.
 
 We arrive at the following estimate of prevalence through time:
+
 ![prevalence](figures/prevalence.png)
 
 We estimate a median prevalence on 8 Feb of 28,500 currently infected with a 95% uncertainty interval of between 7500 and 104,300 currently infected.
@@ -82,6 +83,7 @@ We estimate a median prevalence on 8 Feb of 28,500 currently infected with a 95%
 ### Total incidence
 
 We estimate incidence in each serial interval and then calculate a cumulative incidence total:
+
 ![incidence](figures/incidence.png)
 
 We estimate a median total incidence on 8 Feb of 55,800 total infections since start of epidemic with a 95% uncertainty interval of between 17,500 and 194,400 total infections.
