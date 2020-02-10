@@ -71,7 +71,7 @@ This reduction is equal to
 {% eq \sigma^2 = \frac{1}{E[R_0]} + \frac{1}{k} + 1, %}
 where {% eqinline E[R_0] %} is the mean number of secondary cases and {% eqinline k %} is the dispersion parameter of secondary cases.
 We assume {% eqinline E[R_0] %} to be between 1.8 and 2.8 following [Wu et al][Wu et al] and others.
-We assume that variance of secondary cases is at most like SARS with superspreading dynamics with {% eqinline k=0.15 %}, but allow for less variance with {% eqinline k=0.30 %}.
+We assume that variance of secondary cases is at most like SARS with superspreading dynamics with {% eqinline k=0.15 %}, but allow for less variance with {% eqinline k=0.30 %} ([Riou and Althaus][Riou and Althaus]).
 Thus, we convert BEAST estimates of {% eqinline N_e \tau %} to point prevalence {% eqinline I %} by following {% eqinline I = N_e \tau \times \sigma^2 / \tau %}.
 
 We arrive at the following estimate of prevalence through time:
@@ -100,7 +100,8 @@ The nCoV genomes used in this analysis were generously shared by scientists at t
 
 [Provenance of originating labs, submitting labs and authors is available here](metadata.tsv).
 
-[Wu et al]: https://doi.org/10.1016/S0140-6736(20)30260-9
 [Li et al]: https://doi.org/10.1056/NEJMoa2001316
+[Riou and Althaus]: https://doi.org/10.2807/1560-7917.ES.2020.25.4.2000058
 [Volz et al]: https://doi.org/10.1371/journal.pcbi.1002947
 [WHO Sit Rep 19]: https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports
+[Wu et al]: https://doi.org/10.1016/S0140-6736(20)30260-9
